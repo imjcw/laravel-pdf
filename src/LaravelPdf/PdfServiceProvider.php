@@ -29,6 +29,7 @@ class PdfServiceProvider extends BaseServiceProvider
         } else {
             $this->publishes([$this->configPath() => config_path('pdf.php')]);
         }
+    }
     
     /**
      * Register the service provider.
