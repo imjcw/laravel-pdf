@@ -17,15 +17,15 @@ To start using Laravel, add the Service Provider and the Facade to your `config/
 
 ```php
 'providers' => [
-	// ...
-	niklasravnsborg\LaravelPdf\PdfServiceProvider::class
+    // ...
+    niklasravnsborg\LaravelPdf\PdfServiceProvider::class
 ]
 ```
 
 ```php
 'aliases' => [
-	// ...
-	'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
+    // ...
+    'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
 ]
 ```
 
@@ -43,11 +43,11 @@ To use Laravel PDF add something like this to one of your controllers. You can p
 use PDF;
 
 function generate_pdf() {
-	$data = [
-		'foo' => 'bar'
-	];
-	$pdf = PDF::loadView('pdf.document', $data);
-	return $pdf->stream('document.pdf');
+    $data = [
+        'foo' => 'bar'
+    ];
+    $pdf = PDF::loadView('pdf.document', $data);
+    return $pdf->stream('document.pdf');
 }
 ```
 
@@ -66,12 +66,12 @@ If you have published config file, you can change the default settings in `confi
 
 ```php
 return [
-	'format'           => 'A4', // See https://mpdf.github.io/paging/page-size-orientation.html
-	'author'           => 'John Doe',
-	'subject'          => 'This Document will explain the whole universe.',
-	'keywords'         => 'PDF, Laravel, Package, Peace', // Separate values with comma
-	'creator'          => 'Laravel Pdf',
-	'display_mode'     => 'fullpage'
+    'format'           => 'A4', // See https://mpdf.github.io/paging/page-size-orientation.html
+    'author'           => 'John Doe',
+    'subject'          => 'This Document will explain the whole universe.',
+    'keywords'         => 'PDF, Laravel, Package, Peace', // Separate values with comma
+    'creator'          => 'Laravel Pdf',
+    'display_mode'     => 'fullpage'
 ];
 ```
 
@@ -99,11 +99,11 @@ If you want to have headers and footers that appear on every page, add them to y
 
 ```html
 <htmlpageheader name="page-header">
-	Your Header Content
+    Your Header Content
 </htmlpageheader>
 
 <htmlpagefooter name="page-footer">
-	Your Footer Content
+    Your Footer Content
 </htmlpagefooter>
 ```
 
@@ -111,8 +111,8 @@ Now you just need to define them with the name attribute in your CSS:
 
 ```css
 @page {
-	header: page-header;
-	footer: page-footer;
+    header: page-header;
+    footer: page-footer;
 }
 ```
 
@@ -128,20 +128,20 @@ You can use your own fonts in the generated PDFs. The TTF files have to be locat
 
 ```php
 return [
-	// ...
-	'font_path' => base_path('resources/fonts/'),
-	'font_data' => [
-		'examplefont' => [
-			'R'  => 'ExampleFont-Regular.ttf',    // regular font
-			'B'  => 'ExampleFont-Bold.ttf',       // optional: bold font
-			'I'  => 'ExampleFont-Italic.ttf',     // optional: italic font
-			'BI' => 'ExampleFont-Bold-Italic.ttf' // optional: bold-italic font
-			//'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
-			//'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese
-		]
-		// ...add as many as you want.
-	]
-	// ...
+    // ...
+    'font_path' => base_path('resources/fonts/'),
+    'font_data' => [
+        'examplefont' => [
+            'R'  => 'ExampleFont-Regular.ttf',    // regular font
+            'B'  => 'ExampleFont-Bold.ttf',       // optional: bold font
+            'I'  => 'ExampleFont-Italic.ttf',     // optional: italic font
+            'BI' => 'ExampleFont-Bold-Italic.ttf' // optional: bold-italic font
+            //'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
+            //'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese
+        ]
+        // ...add as many as you want.
+    ]
+    // ...
 ];
 ```
 
@@ -151,7 +151,7 @@ Now you can use the font in CSS:
 
 ```css
 body {
-	font-family: 'examplefont', sans-serif;
+    font-family: 'examplefont', sans-serif;
 }
 ```
 
@@ -167,12 +167,12 @@ There are a fews permissions: `'copy'`, `'print'`, `'modify'`, `'annot-forms'`, 
 use PDF;
 
 function generate_pdf() {
-	$data = [
-		'foo' => 'bar'
-	];
-	$pdf = PDF::loadView('pdf.document', $data);
-	$pdf->SetProtection(['copy', 'print'], '', 'pass');
-	return $pdf->stream('document.pdf');
+    $data = [
+        'foo' => 'bar'
+    ];
+    $pdf = PDF::loadView('pdf.document', $data);
+    $pdf->SetProtection(['copy', 'print'], '', 'pass');
+    return $pdf->stream('document.pdf');
 }
 ```
 
